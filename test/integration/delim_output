@@ -1,0 +1,16 @@
+Item code: TEST1 Count: 17
+!H - Access
+Logged IN
+
+Item code: TEST2 Count: 10
+H - No access
+Not in logged in
+
+Item code: TEST3 Count: 5
+H - No access
+Not in logged in
+
+Item code: TEST4YAML Count: 5
+H - No access
+Not in logged in
+

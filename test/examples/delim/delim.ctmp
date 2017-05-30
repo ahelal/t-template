@@ -1,0 +1,5 @@
+<% range .%>Item code: <% .Code | upper %> Count: <% .Count %>
+<%  if not .Hidden  %>!H <% else %>H <% end%>- <% if .Access %>Access<% else%>No access<% end%>
+<%  if and .Access .Logged %>Logged IN<% else%>Not in logged in<% end%>
+
+<% end%>

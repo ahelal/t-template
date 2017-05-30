@@ -1,0 +1,5 @@
+#!/usr/bin/env t-template
+{{ range . }}{{ range . -}}
+Username: {{.Username}} Name: {{.Name}}
+{{ end -}}
+{{ end -}}

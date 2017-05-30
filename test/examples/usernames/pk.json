@@ -1,0 +1,12 @@
+{
+    "FirstName": "Philomena",
+    "LastName": "King",
+    "UserName": "pk",
+    "Group": "A",
+    "Github": {
+        "Group": "Admin"
+    },
+    "Email": "pk@example.com",
+    "O1": true,
+    "O2": false
+}
