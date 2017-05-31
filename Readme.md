@@ -99,9 +99,9 @@ SOME SORT OF TEMPLATE
 {{ end }}
 ```
 
-### White spaces
+### White spaces control
 
-White spaces are always tricky this might help http://mozilla.github.io/nunjucks/templating.html#whitespace-control
+White spaces are always tricky this might [help](http://mozilla.github.io/nunjucks/templating.html#whitespace-control)
 
 ## Running
 
@@ -141,7 +141,7 @@ To list supported arguments run ```t-template --help```
 
 ## Examples
 
-Check the [examples dir](https://github.com/ahelal/t-template/tree/master/examples)
+Check the [examples dir](https://github.com/ahelal/t-template/tree/master/test/examples)
 
 ## TODO
 
