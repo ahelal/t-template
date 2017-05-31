@@ -62,13 +62,19 @@ cd test/examples/simple
 cat users.json | ./simple.ctmp --stdin-json
 ```
 
-### Files input
+### Files/Directories as input
 
 You can pass both JSON and yaml files as an arguments in a mixed mode ```-j FILE --json=FILE```  ```-y FILE --yaml=FILE```. You can repeat them for each file.
 
 ```bash
 cd test/examples/usernames
 ./userReport.tmp -j ht.json -j pk.json -j ra.json -y cj.yml -y jp.yml -y yo.yml
+```
+
+You can also pass directories and mix with files.
+```bash
+cd test/examples/dir
+./dir.tmp -j ./dir_json -j ./a.json -j -y ./dir_yaml -y a.yml
 ```
 
 ### Note
@@ -148,9 +154,8 @@ To list supported arguments run ```t-template --help```
 Check the [examples dir](https://github.com/ahelal/t-template/tree/master/test/examples)
 
 ## TODO
-
-* more tests
-* Support directory load
+* Output bug fix
+* More tests
 * Support HCL syntax https://www.terraform.io/docs/configuration/syntax.html
 
 
