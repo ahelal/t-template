@@ -44,16 +44,16 @@ func main() {
 		data = toutput.MergeData(data, tfiles.ReadYAMLInputStdin())
 	}
 
-	if input {
-		ttemplate.RunTemplate(ttemplate.TConfig{
-			Data:         data,
-			TemplateFile: options.TemplateFile,
-			OutputFile:   options.OutputFile,
-			HashBang:     options.HashBang,
-			LeftDelim:    options.LeftDelim,
-			RightDelim:   options.RightDelim,
-		})
-	} else {
-		toutput.PrintFatal("", "No input was defined. At least one of the following arguments is required `-j FILE` `-y FILE` `-J` `-Y` ")
+	if !input {
+		toutput.StderrLog("No input was defined", options.Verbose, toutput.TVerbosity["WARNING"])
 	}
+
+	ttemplate.RunTemplate(ttemplate.TConfig{
+		Data:         data,
+		TemplateFile: options.TemplateFile,
+		OutputFile:   options.OutputFile,
+		HashBang:     options.HashBang,
+		LeftDelim:    options.LeftDelim,
+		RightDelim:   options.RightDelim,
+	})
 }

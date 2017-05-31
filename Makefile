@@ -6,9 +6,9 @@ VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null 
 GOPATH   = $(CURDIR)/.gopath~
 BIN      = $(GOPATH)/bin
 BASE     = $(GOPATH)/src/$(PACKAGE_PREFIX)/$(PACKAGE)
+VENDORBASE= vender/$(PACKAGE_PREFIX)/$(PACKAGE)
 PKGS     = $(or $(PKG),$(shell cd $(BASE) && env GOPATH=$(GOPATH) $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
 TESTPKGS = $(shell env GOPATH=$(GOPATH) $(GO) list -f '{{ if or .TestGoFiles .XTestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
-IGNORED_PACKAGES = /vendor/
 GO      = go
 GODOC   = godoc
 GOFMT   = gofmt
@@ -108,8 +108,6 @@ glide.lock: glide.yaml | $(BASE) ; $(info $(M) updating dependencies…)
 	@touch $@
 vendor: glide.lock | $(BASE) ; $(info $(M) retrieving dependencies…)
 	$Q cd $(BASE) && $(GLIDE) --quiet install
-	@ln -sf . vendor/src
-	@touch $@
 
 # Misc
 
