@@ -26,22 +26,22 @@ func main() {
 	if len(options.JSONFiles) > 0 {
 		input = true
 		toutput.StderrLog(fmt.Sprintf("JSON files(s) %+v", options.JSONFiles), options.Verbose, toutput.TVerbosity["INFO"])
-		data = toutput.MergeData(data, tfiles.ReadJSONInputFiles(options.JSONFiles))
+		data = toutput.MergeData(data, tfiles.ReadInputFiles(options.JSONFiles, tfiles.TFileType["JSON"]))
 	}
 
 	if len(options.YamlFiles) > 0 {
 		input = true
-		data = toutput.MergeData(data, tfiles.ReadYamlInputFiles(options.YamlFiles))
+		data = toutput.MergeData(data, tfiles.ReadInputFiles(options.YamlFiles, tfiles.TFileType["YAML"]))
 	}
 
 	if options.StdinJSON {
 		input = true
 		toutput.StderrLog(fmt.Sprintf("Reading JSON from stdin"), options.Verbose, toutput.TVerbosity["INFO"])
-		data = toutput.MergeData(data, tfiles.ReadJSONInputStdin())
+		data = toutput.MergeData(data, tfiles.ReadInputStdin(tfiles.TFileType["JSON"]))
 	} else if options.StdinYaml {
 		input = true
 		toutput.StderrLog(fmt.Sprintf("Reading YAML from stdin"), options.Verbose, toutput.TVerbosity["INFO"])
-		data = toutput.MergeData(data, tfiles.ReadYAMLInputStdin())
+		data = toutput.MergeData(data, tfiles.ReadInputStdin(tfiles.TFileType["YAML"]))
 	}
 
 	if !input {
