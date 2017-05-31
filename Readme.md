@@ -38,6 +38,10 @@ Username: user1 Name: User One
 Username: user2 Name: User Two
 Username: user3 Name: User Three
 ```
+
+## Download
+t-template is a go application you can compile it or use latest releases in github.
+
 ## Inputs
 
 t-template support various input method
