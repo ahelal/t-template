@@ -1,0 +1,23 @@
+#!/usr/bin/env t-template
+<h1 style="color: #5e9ca0;"><span style="text-decoration: underline;"><strong>User report</strong></span></h1>
+{{ range .}}<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<td><span style="text-decoration: underline;"><strong>Name</strong></span></td>
+<td>{{.FirstName }}&nbsp;{{.LastName }}</td>
+</tr>
+<tr>
+<td><span style="text-decoration: underline;"><strong>Group</strong></span></td>
+<td>{{.Group }}</td>
+</tr>
+  <tr>
+<td><span style="text-decoration: underline;"><strong>Username</strong></span></td>
+<td>{{.UserName }}</td>
+</tr>
+<tr>
+<td><span style="text-decoration: underline;"><strong>Email</strong></span></td>
+<td>{{.Email }}</td>
+</tr>
+</tbody>{{ end}}
+</table>

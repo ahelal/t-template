@@ -1,0 +1,7 @@
+---
+Code: "test4yaml"
+Count: 5
+NotUsed: '123'
+Hidden: true
+Access: false
+Logged: false

@@ -1,0 +1,7 @@
+#!/usr/bin/env t-template
+Github groups
+
+Admin:
+{{ range .}}{{ if .Github}}{{ if eq .Github.Group "Admin" }}- {{.Email }}{{"\n"}}{{end}}{{end}}{{end}}
+Developer:
+{{ range .}}{{ if .Github}}{{ if eq .Github.Group "Developer" }}- {{.Email }}{{"\n"}}{{end}}{{end}}{{end}}

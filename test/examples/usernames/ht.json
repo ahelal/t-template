@@ -1,0 +1,11 @@
+{
+    "FirstName": "Hiroki",
+    "LastName": "Tanaka",
+    "UserName": "ht",
+    "Group": "B",
+    "Github": {
+        "Group": "Developer"
+    },
+    "Email": "ht@example.com",
+    "O1": true
+}
