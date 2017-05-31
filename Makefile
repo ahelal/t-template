@@ -19,11 +19,22 @@ Q = $(if $(filter 1,$V),,@)
 M = $(shell printf "\033[34;1m▶\033[0m")
 
 .PHONY: all
-all: fmt lint vendor | $(BASE) ; $(info $(M) building executable…) @ ## Build program binary
-	$Q cd $(BASE) && $(GO) build \
+all: fmt lint vendor | $(BASE) build_linux
+
+build_linux:
+	$(info $(M) building linux executable…) @ ## Build program binary
+	$Q cd $(BASE) && GOOS=linux GOARCH=amd64 $(GO) build \
 		-tags release \
 		-ldflags '-X main.version=$(VERSION) -X main.BuildDate=$(DATE)' \
-		-o bin/$(PACKAGE) main.go
+		-o bin/$(PACKAGE)_$(VERSION)_linux main.go
+
+build_darwin:
+	$(info $(M) building darwin executable…) @ ## Build program binary
+	$Q cd $(BASE) && GOOS=darwin GOARCH=amd64 CGO_ENABLED=1 $(GO) build \
+		-tags release \
+		-ldflags '-X main.version=$(VERSION) -X main.BuildDate=$(DATE)' \
+		-o bin/$(PACKAGE)_$(VERSION)_darwin main.go
+
 
 $(BASE): ; $(info $(M) setting GOPATH…)
 	@mkdir -p $(dir $@)

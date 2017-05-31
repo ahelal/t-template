@@ -38,7 +38,6 @@ func RunTemplate(c TConfig) {
 		err = tmpl.Execute(f, c.Data)
 		toutput.CheckError(err, "Template execution error 'filepath'\n", true)
 	}
-
 }
 
 func hashBangCheck(templateAsString string) string {
@@ -54,10 +53,8 @@ func hashBangCheck(templateAsString string) string {
 				}
 			}
 			if newLineLength == 0 {
-				// if hashbang more then 128 we should just failed
 				toutput.PrintFatal("", "Error hashbang is greater then 128 chars.")
 			}
-
 			return templateAsString[newLineLength:]
 		}
 	}
