@@ -3,6 +3,7 @@
 DIR="$(cd "$(dirname $0)" && pwd )"  # absolutized and normalized
 TTEMPLATE=${DIR}/../../bin/t-template
 exit_code=0
+
 # Create a temp dir
 mytmpdir=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir')
 
@@ -26,7 +27,8 @@ PATH="${DIR}/../../bin/:${PATH}"
 "${test_path}/simple.ctmp" \
                     -j "${test_path}/users.json" \
                     -y "${test_path}/users.yml" \
-                    -o "${output_file}"
+                    > "${output_file}"
+                    #-o "${output_file}"
 
 check_if_failed "${DIR}/simple_output" "${output_file}" "Simple test"
 
@@ -71,6 +73,18 @@ export NAME_X="MAX"
 export LAST_X="POWER"
 ${TTEMPLATE} "${test_path}/noinput.ctmp" > "${output_file}"
 check_if_failed "${DIR}/noinput_output" "${output_file}" "No input"
+
+# TEST 6 dir
+output_file="${mytmpdir}/dir_gen"
+test_path="${DIR}/../examples/dir/"
+cat test/examples/dir/c.yml | ${TTEMPLATE} "${test_path}/dir.ctmp" -Y \
+                                -j ./test/examples/dir/dir_json \
+                                -j ./test/examples/dir/a.json \
+                                -j ./test/examples/dir/b.json \
+                                -y ./test/examples/dir/dir_yaml \
+                                -y test/examples/dir/a.yml \
+                                -y test/examples/dir/b.yml > "${output_file}"
+check_if_failed "${DIR}/dir_output" "${output_file}" "DIR"
 
 rm -rf "${mytmpdir}"
 exit ${exit_code}
