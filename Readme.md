@@ -32,6 +32,7 @@ cd test/examples/simple
 t-template ./simple.ctmp --yaml users.yml
 ```
 
+
 Output
 ```
 Username: user1 Name: User One
