@@ -19,7 +19,11 @@ Q = $(if $(filter 1,$V),,@)
 M = $(shell printf "\033[34;1m▶\033[0m")
 
 .PHONY: all
-all: fmt lint vendor | $(BASE) build_linux
+all: fmt lint vendor | $(BASE) ; $(info $(M) building executable…) @ ## Build program binary
+	$Q cd $(BASE) && $(GO) build \
+		-tags release \
+		-ldflags '-X main.version=$(VERSION) -X main.BuildDate=$(DATE)' \
+		-o bin/$(PACKAGE) main.go
 
 build_linux:
 	$(info $(M) building linux executable…) @ ## Build program binary

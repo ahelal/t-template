@@ -1,0 +1,4 @@
+#!/usr/bin/env t-template
+{{ range . -}}
+{{ .name }}
+{{ end -}}
