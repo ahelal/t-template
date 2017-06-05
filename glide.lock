@@ -1,5 +1,5 @@
-hash: a1a3c6e229d9ff910c0971fef793e25637630a7e06b7541e2a9441b7833874ea
-updated: 2017-05-30T19:22:53.261346589+02:00
+hash: 8bfbd0e5706520b426ab93a9f8bef29d5b01cb9b3d5e4f467a06993cbd3bf4ef
+updated: 2017-06-01T00:07:30.540683179+02:00
 imports:
 - name: github.com/aokoli/goutils
   version: 9c37978a95bd5c709a15883b6242714ea6709e64
@@ -7,8 +7,14 @@ imports:
   version: 784ddc588536785e7299f7272f39101f7faccc3f
 - name: github.com/ghodss/yaml
   version: 04f313413ffd65ce25f2541bfd2b2ceec5c0908c
+- name: github.com/huandu/xstrings
+  version: 3959339b333561bf62a38b424fd41517c2c90f40
+- name: github.com/imdario/mergo
+  version: 3e95a51e0639b4cf372f2ccf74c86749d747fbdc
+- name: github.com/Masterminds/semver
+  version: 59c29afe1a994eacb71c833025ca7acf874bb1da
 - name: github.com/Masterminds/sprig
-  version: 2d2df7bd8bda53b5a55ed04422173cedd50500ea
+  version: 9526be0327b26ad31aa70296a7b10704883976d5
 - name: github.com/satori/go.uuid
   version: 879c5887cd475cd7864858769793b2ceb0d44feb
 - name: golang.org/x/crypto

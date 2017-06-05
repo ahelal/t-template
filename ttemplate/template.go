@@ -1,6 +1,7 @@
 package ttemplate
 
 import (
+	"fmt"
 	"html/template"
 	"os"
 
@@ -27,7 +28,7 @@ func RunTemplate(c TConfig) {
 		templateAsString = hashBangCheck(templateAsString)
 	}
 	tmpl, err := template.New("base").Funcs(sprig.FuncMap()).Delims(c.LeftDelim, c.RightDelim).Parse(templateAsString)
-	toutput.CheckError(err, "Template ParseArgs error 'filepath'", true)
+	toutput.CheckError(err, fmt.Sprintf("Template ParseArgs error '%s'", c.TemplateFile), true)
 	if c.OutputFile == "__%__STDOUT__%__" {
 		err = tmpl.Execute(os.Stdout, c.Data)
 		toutput.CheckError(err, "Template execution error\n", true)
@@ -36,13 +37,13 @@ func RunTemplate(c TConfig) {
 		toutput.CheckError(e, "Failed to open generated file for writing", true)
 		defer f.Close()
 		err = tmpl.Execute(f, c.Data)
-		toutput.CheckError(err, "Template execution error 'filepath'\n", true)
+		toutput.CheckError(err, fmt.Sprintf("Template execution error '%s'\n", c.TemplateFile), true)
 	}
 }
 
 func hashBangCheck(templateAsString string) string {
-	hashbang := templateAsString[:2]
-	if len(hashbang) > 0 {
+	if len(templateAsString) > 1 {
+		hashbang := templateAsString[:2]
 		if hashbang == "#!" {
 			newLineLength := 0
 			for i := 0; i < 127; i++ {
@@ -53,7 +54,7 @@ func hashBangCheck(templateAsString string) string {
 				}
 			}
 			if newLineLength == 0 {
-				toutput.PrintFatal("", "Error hashbang is greater then 128 chars.")
+				toutput.PrintFatal("", "Error hashbang is greater then 128 characters.")
 			}
 			return templateAsString[newLineLength:]
 		}

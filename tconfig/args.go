@@ -9,15 +9,15 @@ Usage:
   t-template --version
 
 Options:
-  -o FILE --output=FILE             Output file path if not specified will fallback to stdout
-  -j FILE --json=FILE               Input JSON file input can be specified multiple time
-  -y FILE --yaml=FILE               Input yaml file input can be specified multiple time
+  -o FILE --output=FILE             Output file path if not specified will fallback to stdout.
+  -j FILE --json=FILE               Input JSON file or directory input can be specified multiple time.
+  -y FILE --yaml=FILE               Input yaml file or directory input can be specified multiple time.
   -J --stdin-json                   Accept JSON from stdin this option is mutually exclusive with -Y
   -Y --stdin-yaml                   Accept YAML from stdin this option is mutually exclusive with -J
   -l Delim --left-delimiter=Delim   Left delimiters to use [default: {{].
   -r Delim --right-delimiter=Delim  Right delimiters to use [default: }}].
+  -i --ignore-hashbang              Don't remove the hashbang.
   -v --verbose                      Verbose support up to -vvv (All output is to stderr)
-  -i --ignore-hashbang              Don't remove the hashbang
   -h --help                         Show this screen.
   --version                         Show version.`
 
