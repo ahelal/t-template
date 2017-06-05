@@ -42,7 +42,7 @@ func RunTemplate(c TConfig) {
 }
 
 func hashBangCheck(templateAsString string) string {
-	if len(templateAsString) > 0 {
+	if len(templateAsString) > 1 {
 		hashbang := templateAsString[:2]
 		if hashbang == "#!" {
 			newLineLength := 0
