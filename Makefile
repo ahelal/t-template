@@ -1,8 +1,7 @@
 PACKAGE  = t-template
 PACKAGE_PREFIX = github.com/ahelal
 DATE    ?= $(shell date +%FT%T%z)
-VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null || \
-			cat $(CURDIR)/.VERSION 2> /dev/null || echo v0)
+VERSION ?= $(shell cat $(CURDIR)/.VERSION 2> /dev/null || echo v0)
 GOPATH   = $(CURDIR)/.gopath~
 BIN      = $(GOPATH)/bin
 BASE     = $(GOPATH)/src/$(PACKAGE_PREFIX)/$(PACKAGE)
